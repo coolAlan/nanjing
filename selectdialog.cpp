@@ -183,6 +183,7 @@ void selectDialog::on_pushButton_clicked()
          QMessageBox message(QMessageBox::Warning,"Information","Your phone's Andorid version is higher than 2.X. \n If your phone is ROOTed,please click Yes ,else No",QMessageBox::Yes|QMessageBox::No,NULL);
              if (message.exec()==QMessageBox::Yes)
              {
+                 // can't pull packages.xml but phone is root
                  QProcess *subpro = new QProcess(this);
                  pullapk.start("sh getXml.sh "+serial+" "+dirName);
                  pullapk.waitForFinished();
@@ -190,6 +191,7 @@ void selectDialog::on_pushButton_clicked()
              }
              else
              {
+                 // can't pull packages.xml but phone is not root
                  return;
              }
 
